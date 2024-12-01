@@ -1,16 +1,18 @@
 package boundary;
 
-import persistence.AccountDaoFactory;
-import persistence.InMemoryAccountDao;
+import persistence.DaoFactory;
 import persistence.PersistenceProvider;
 
 public class ConfigurationBoundary {
-
-    AccountDaoFactory accountDaoFactory = AccountDaoFactory.getInstance();
     
     public void setPersistenceProvider(String provider) {
-        if (provider == PersistenceProvider.IN_MEMORY.toString()) {
-            accountDaoFactory.setAccountDaoImpl(InMemoryAccountDao.class);
+        // finds the persistence provider by name.
+        // This way we don't need to change the boundary if we add a new provider.
+        for (PersistenceProvider p : PersistenceProvider.values()) {
+            if (p.getName().equals(provider)) {
+                DaoFactory.setPersitenceProvider(p);
+                return;
+            }
         }
     }
     

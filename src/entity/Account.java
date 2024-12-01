@@ -27,4 +27,14 @@ public class Account {
     public void credit(double amount) {
         balance += amount;
     }
+
+    public void setAccountId(String accountId) {
+        this.accountId = accountId;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    
 }

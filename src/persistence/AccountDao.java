@@ -2,7 +2,9 @@ package persistence;
 
 import entity.Account;
 
-public interface AccountDao {
-    void storeAccount(Account account);
-    Account loadAccount(String accountId);
+public interface AccountDao extends Dao<String, Account> {
+    @Override
+    default Account create(String key){
+        return new Account(key, 0);
+    }
 }

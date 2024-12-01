@@ -2,17 +2,18 @@ package control;
 
 public class TransferMoneyBean {
 
+    private final String sourceAccountUser;
     private final String sourceAccountId;
+    private final String destinationAccountUser;
     private final String destinationAccountId;
     private final double amount;
 
-    private double updatedSourceBalance;
-    private double updatedDestinationBalance;
-
-    public TransferMoneyBean(String sourceAccountId, String destinationAccountId, double amount) {
+    public TransferMoneyBean(String sourceAccountId, String destinationAccountId, double amount, String sourceAccountUser, String destinationAccountUser) {
         this.sourceAccountId = sourceAccountId;
         this.destinationAccountId = destinationAccountId;
         this.amount = amount;
+        this.sourceAccountUser = sourceAccountUser;
+        this.destinationAccountUser = destinationAccountUser;
     }
 
     public String getSourceAccountId() {
@@ -25,20 +26,12 @@ public class TransferMoneyBean {
         return amount;
     }
     
-    public double getUpdatedSourceBalance() {
-        return updatedSourceBalance;
+    public String getSourceAccountUser() {
+        return sourceAccountUser;
     }
 
-    public void setUpdatedSourceBalance(double updatedSourceBalance) {
-        this.updatedSourceBalance = updatedSourceBalance;
-    }
-
-    public double getUpdatedDestinationBalance() {
-        return updatedDestinationBalance;
-    }
-
-    public void setUpdatedDestinationBalance(double updatedDestinationBalance) {
-        this.updatedDestinationBalance = updatedDestinationBalance;
+    public String getDestinationAccountUser() {
+        return destinationAccountUser;
     }
     
     
